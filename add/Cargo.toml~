@@ -1,0 +1,9 @@
+[workspace]
+
+members = [
+	"adder",
+	"add_one",
+]
+
+[dependencies]
+add_one = { path = "../add_one" }
