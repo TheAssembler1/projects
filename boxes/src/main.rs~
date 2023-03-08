@@ -1,0 +1,46 @@
+use std::ops::Deref;
+
+struct MyBox<T>(T);
+
+impl<T> Deref for MyBox<T> {
+    type Target = T;
+
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+
+    fn new(x: T) -> MyBox<T> {
+        MyBox(T)
+    }
+}
+
+struct CustomSmartPointer {
+    data: String
+}
+
+impl Drop for CustomSmartPointer {
+    fn drop(&mut self) {
+        println!("Dropping CustomSmarkPointer with data '{}'", self.data);
+    }
+}
+
+fn main() {
+   let x = 5;
+   let y = MyBox::new(5);
+
+   assert_eq!(5, x);
+   assert_eq!(5, *y);
+
+   let c = CustomSmartPointer {
+        data: String::from("my stuff")
+   };
+   let d = CustomSmartPointer {
+        data: String::from("other stuff")
+   };
+
+   println!("CustomSmartPointers Created.");
+}
+
+fn hello(name: &str) {
+    println!("Hello, {name}");
+}
