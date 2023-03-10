@@ -1,4 +1,5 @@
 fn main() {
+    println!("Test");
 }
 
 pub struct NewsArticle {
