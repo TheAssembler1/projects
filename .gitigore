@@ -4,3 +4,5 @@
 *~
 *.d
 *.bin
+*target
+*node_modules
